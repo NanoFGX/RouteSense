@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+backend/data/*.db
+backend/results/
+frontend/node_modules/
+.DS_Store
+Thumbs.db
+# frontend/dist is committed on purpose: the backend serves it, so the demo runs with Python only.

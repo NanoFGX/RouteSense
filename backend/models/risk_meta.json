@@ -1,0 +1,95 @@
+{
+  "trained_at": "2026-11-02T17:07:47+00:00",
+  "scenario": "mid",
+  "seed": 42,
+  "features": [
+    "landed",
+    "high_rise",
+    "shop_office",
+    "guardhouse",
+    "cod",
+    "cod_amount",
+    "prior_failures",
+    "slot_morning",
+    "slot_midday",
+    "slot_afternoon",
+    "slot_evening",
+    "home_in_office_hours",
+    "home_in_evening",
+    "shop_outside_hours",
+    "window_width_h"
+  ],
+  "high_band_threshold": 0.35,
+  "metrics": {
+    "train_rows": 4080,
+    "test_rows": 1020,
+    "test_routes": 68,
+    "logistic_regression": {
+      "pr_auc": 0.454,
+      "roc_auc": 0.682,
+      "brier": 0.1782,
+      "recall_high_band": 0.283,
+      "precision_high_band": 0.562,
+      "mean_predicted": 0.252,
+      "observed_rate": 0.267
+    },
+    "xgboost": {
+      "pr_auc": 0.457,
+      "roc_auc": 0.684,
+      "brier": 0.1768,
+      "recall_high_band": 0.29,
+      "precision_high_band": 0.545,
+      "mean_predicted": 0.252,
+      "observed_rate": 0.267
+    }
+  },
+  "data_checks": {
+    "grounded": {
+      "cod_share": 0.201,
+      "cod_share_target": 0.2,
+      "failure_rate_by_scenario": {
+        "low": 0.165,
+        "mid": 0.256,
+        "high": 0.405
+      },
+      "failure_rate_targets": {
+        "low": 0.15,
+        "mid": 0.25,
+        "high": 0.4
+      },
+      "passed": true
+    },
+    "plausible": {
+      "landed_office_hours": 0.266,
+      "landed_evening": 0.183,
+      "high_rise": 0.326,
+      "landed": 0.247,
+      "cod": 0.292,
+      "no_cod": 0.247,
+      "prior_failure": 0.47,
+      "no_prior_failure": 0.22,
+      "passed": true
+    },
+    "sensitive": {
+      "by_scenario": {
+        "low": {
+          "failure_rate": 0.156,
+          "xgb_pr_auc": 0.241,
+          "lr_pr_auc": 0.25
+        },
+        "mid": {
+          "failure_rate": 0.267,
+          "xgb_pr_auc": 0.457,
+          "lr_pr_auc": 0.454
+        },
+        "high": {
+          "failure_rate": 0.406,
+          "xgb_pr_auc": 0.547,
+          "lr_pr_auc": 0.572
+        }
+      },
+      "passed": true
+    }
+  },
+  "note": "Synthetic, seeded data. No class weights, so probabilities stay calibrated for planning."
+}

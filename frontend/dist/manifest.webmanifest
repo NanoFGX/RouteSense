@@ -1,0 +1,10 @@
+{
+  "name": "RouteSense",
+  "short_name": "RouteSense",
+  "description": "Failure-aware delivery planning for Malaysian parcel riders",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F5F6",
+  "theme_color": "#8A1538",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
